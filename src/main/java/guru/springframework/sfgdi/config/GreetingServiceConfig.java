@@ -37,10 +37,10 @@ public class GreetingServiceConfig {
         return new PrimaryGreetingService();
     }
 
-    //@Bean
+    /*@Bean added to xml file
     ConstructorGreetingService constructorGreetingService(){
         return new ConstructorGreetingService();
-    }
+    }*/
 
     @Bean
     PropertyInjectedGreetingService propertyInjectedGreetingService(){
