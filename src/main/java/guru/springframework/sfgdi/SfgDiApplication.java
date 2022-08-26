@@ -58,6 +58,8 @@ public class SfgDiApplication {
 		System.out.println(fakeDataSource.getJdbcurl());
 		System.out.println(fakeDataSource.getUsername());
 		System.out.println(fakeDataSource.getPassword());
+
+		System.out.println("I'am testing different properties qa/dv");
 	}
 
 }
