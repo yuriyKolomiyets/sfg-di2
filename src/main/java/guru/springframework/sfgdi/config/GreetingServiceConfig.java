@@ -2,17 +2,29 @@ package guru.springframework.sfgdi.config;
 
 import com.springframework.pets.I18nEnglishGreetingService;
 import com.springframework.pets.I18nSpanishGreetingService;
+import guru.springframework.sfgdi.datasource.FakeDataSource;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepository;
 import guru.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import guru.springframework.sfgdi.services.ConstructorGreetingService;
 import guru.springframework.sfgdi.services.PrimaryGreetingService;
 import guru.springframework.sfgdi.services.PropertyInjectedGreetingService;
 import guru.springframework.sfgdi.services.SetterInjectedGreetingService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
-
+@PropertySource("classpath:datasource.properties")
 @Configuration
 @ImportResource("classpath:sfmgdi-config.xml")
 public class GreetingServiceConfig {
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${guru.username}") String name,
+                                  @Value("${guru.password}")String pass,
+                                  @Value("${guru.jdbcurl}")String url){
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(name);
+        fakeDataSource.setJdbcurl(url);
+        fakeDataSource.setPassword(pass);
+        return fakeDataSource;
+    }
 
     @Bean
     EnglishGreetingRepository englishGreetingRepository(){
@@ -51,5 +63,7 @@ public class GreetingServiceConfig {
     SetterInjectedGreetingService setterInjectedGreetingService(){
         return new SetterInjectedGreetingService();
     }
+
+
 
 }
