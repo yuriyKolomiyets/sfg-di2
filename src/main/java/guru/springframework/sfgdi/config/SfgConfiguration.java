@@ -1,6 +1,6 @@
-package guru.springframework.sfgdi.datasource;
+package guru.springframework.sfgdi.config;
 
-public class FakeDataSource {
+public class SfgConfiguration {
 
     private String username;
     private String password;
@@ -29,4 +29,5 @@ public class FakeDataSource {
     public void setJdbcurl(String jdbcurl) {
         this.jdbcurl = jdbcurl;
     }
+
 }
