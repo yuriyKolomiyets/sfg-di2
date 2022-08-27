@@ -15,7 +15,9 @@ import org.springframework.context.annotation.*;
 @ImportResource("classpath:sfmgdi-config.xml")
 public class GreetingServiceConfig {
     @Bean
-    /*FakeDataSource fakeDataSource(@Value("${guru.username}") String name,
+    /* I left it comment to show the ather way it coud be injected here
+
+    FakeDataSource fakeDataSource(@Value("${guru.username}") String name,
                                   @Value("${guru.password}")String pass,
                                   @Value("${guru.jdbcurl}")String url){
         FakeDataSource fakeDataSource = new FakeDataSource();
