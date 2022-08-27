@@ -10,7 +10,9 @@ import guru.springframework.sfgdi.services.PrimaryGreetingService;
 import guru.springframework.sfgdi.services.PropertyInjectedGreetingService;
 import guru.springframework.sfgdi.services.SetterInjectedGreetingService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
+@EnableConfigurationProperties(SfgConstructorConfig.class)
 @Configuration
 @ImportResource("classpath:sfmgdi-config.xml")
 public class GreetingServiceConfig {
