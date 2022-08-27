@@ -15,13 +15,21 @@ import org.springframework.context.annotation.*;
 @ImportResource("classpath:sfmgdi-config.xml")
 public class GreetingServiceConfig {
     @Bean
-    FakeDataSource fakeDataSource(@Value("${guru.username}") String name,
+    /*FakeDataSource fakeDataSource(@Value("${guru.username}") String name,
                                   @Value("${guru.password}")String pass,
                                   @Value("${guru.jdbcurl}")String url){
         FakeDataSource fakeDataSource = new FakeDataSource();
         fakeDataSource.setUsername(name);
         fakeDataSource.setJdbcurl(url);
         fakeDataSource.setPassword(pass);
+        return fakeDataSource;
+    }*/
+
+    FakeDataSource fakeDataSource(SfgConfiguration sfgConfiguration){
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(sfgConfiguration.getUsername());
+        fakeDataSource.setJdbcurl(sfgConfiguration.getJdbcurl());
+        fakeDataSource.setPassword(sfgConfiguration.getPassword());
         return fakeDataSource;
     }
 
